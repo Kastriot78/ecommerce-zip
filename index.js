@@ -1,13 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 // routes
-import categoryRoutes from '../routes/categoryRoutes';
-import contactRoutes from '../routes/contactRoutes';
-import subscribeRoutes from '../routes/subscribeRoutes';
-import productRoutes from '../routes/productRoutes';
-import userRoutes from '../routes/userRoutes';
-import colorRoutes from '../routes/colorRoutes';
-import orderRoutes from '../routes/orderRoutes';
+import categoryRoutes from './routes/categoryRoutes';
+import contactRoutes from './routes/contactRoutes';
+import subscribeRoutes from './routes/subscribeRoutes';
+import productRoutes from './routes/productRoutes';
+import userRoutes from './routes/userRoutes';
+import colorRoutes from './routes/colorRoutes';
+import orderRoutes from './routes/orderRoutes';
 
 const app = express();
 const port = process.env.PORT || 5000;
