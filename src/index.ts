@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 const corsOptions = {
-    origin: 'http://localhost:3000'
+    origin: 'https://shop-now-nine.vercel.app'
 };
 
 app.use(cors(corsOptions));
