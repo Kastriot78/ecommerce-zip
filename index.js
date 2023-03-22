@@ -8,17 +8,27 @@ import productRoutes from './routes/productRoutes';
 import userRoutes from './routes/userRoutes';
 import colorRoutes from './routes/colorRoutes';
 import orderRoutes from './routes/orderRoutes';
-
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import {
+    CORS_DOMAINS
+} from './config';
 const app = express();
 const port = process.env.PORT || 5000;
 
-import bodyParser from 'body-parser';
-import cors from 'cors';
+const domainsFromEnv = CORS_DOMAINS || ""
 
-const corsOptions ={
-    origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
+const whitelist = domainsFromEnv.split(",").map(item => item.trim())
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin || whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error("Not allowed by CORS"))
+        }
+    },
+    credentials: true,
 }
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
