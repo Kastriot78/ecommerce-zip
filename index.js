@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to Ecommerce APP.');
 });
 
-app.use("/images", express.static("images"));
+app.use(express.static(__dirname + "/public/"));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
