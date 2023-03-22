@@ -10,31 +10,20 @@ import colorRoutes from './routes/colorRoutes';
 import orderRoutes from './routes/orderRoutes';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import {
-    CORS_DOMAINS
-} from './config';
+
 const app = express();
 const port = process.env.PORT || 5000;
 
-const domainsFromEnv = CORS_DOMAINS || ""
-
-const whitelist = domainsFromEnv.split(",").map(item => item.trim())
-
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (!origin || whitelist.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error("Not allowed by CORS"))
-        }
-    },
-    credentials: true,
-}
-app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+const corsOptions = {
+    origin: 'http://localhost:3000'
+};
+
+app.use(cors(corsOptions));
 
 app.use('/categories', categoryRoutes);
 app.use('/contacts', contactRoutes);
