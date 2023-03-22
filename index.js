@@ -10,6 +10,7 @@ import colorRoutes from './routes/colorRoutes';
 import orderRoutes from './routes/orderRoutes';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 5000;
