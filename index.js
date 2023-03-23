@@ -41,8 +41,8 @@ app.get('/', (req, res) => {
     res.send('Welcome to Ecommerce APP.');
 });
 
-const directory = path.join(__dirname, 'images');
-app.use('/images', express.static(directory));
+const directory = path.join(__dirname, '/images');
+app.use('./images', express.static(directory));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
