@@ -8,6 +8,7 @@ import productRoutes from './routes/productRoutes';
 import userRoutes from './routes/userRoutes';
 import colorRoutes from './routes/colorRoutes';
 import orderRoutes from './routes/orderRoutes';
+import banner1Routes from '../routes/banner1Routes';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
@@ -32,6 +33,7 @@ app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 app.use('/colors', colorRoutes);
 app.use('/orders', orderRoutes);
+app.use('/banner1', banner1Routes);
 
 // mongoose.connect('mongodb://localhost/ecommerce');
 mongoose.connect('mongodb+srv://Kastriot:fU4BERd8D2s3ufqi@cluster-shop.qmsbd0e.mongodb.net/?retryWrites=true&w=majority');
